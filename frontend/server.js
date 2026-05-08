@@ -31,9 +31,19 @@ if (isProduction) {
 } else {
 	const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
 	const backendUrlAlt = backendUrl.startsWith("https://")
-		? backendUrl.replace("https://", "http://")
-		: backendUrl.replace("http://", "https://");
+	? backendUrl.replace("https://", "http://")
+	: backendUrl.replace("http://", "https://");
+
+	const backendWsUrl = backendUrl.startsWith("https://")
+	? backendUrl.replace("https://", "wss://")
+	: backendUrl.replace("http://", "ws://");
+
+	const backendWsUrlAlt = backendUrlAlt.startsWith("https://")
+	? backendUrlAlt.replace("https://", "wss://")
+	: backendUrlAlt.replace("http://", "ws://");
+
 	const backendUrls = [backendUrl, backendUrlAlt];
+	const backendWsUrls = [backendWsUrl, backendWsUrlAlt];
 	app.use(
 		helmet({
 			contentSecurityPolicy: {
