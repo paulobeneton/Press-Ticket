@@ -44,7 +44,7 @@ if (isProduction) {
 					fontSrc: ["'self'", "https://fonts.gstatic.com"],
 					imgSrc: ["'self'", "data:", "https:", "blob:", ...backendUrls],
 					mediaSrc: ["'self'", "https:", "blob:"],
-					connectSrc: ["'self'", "http://localhost:*", "ws://localhost:*", "wss://localhost:*", "https:", ...backendUrls],
+					connectSrc: ["'self'", "http://localhost:*", "ws://localhost:*", "wss://localhost:*", `ws://${backendUrls}`, `wss://${backendUrls}`, "https:", ...backendUrls],
 					frameSrc: ["'self'", "https://www.youtube.com", "https://www.youtube-nocookie.com", ...backendUrls],
 					objectSrc: ["'none'"],
 					baseUri: ["'self'"],
